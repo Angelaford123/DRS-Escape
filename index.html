@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><title>DRS Secure Terminal</title>
+<style>
+body{margin:0;background:#000;color:#6f6;font-family:Consolas,monospace;overflow:hidden}
+canvas{position:fixed;inset:0}.wrap{position:relative;z-index:1;max-width:520px;margin:8vh auto;background:rgba(0,0,0,.82);border:1px solid #0f0;padding:24px;box-shadow:0 0 20px #0f0}
+h1{text-align:center}.type{white-space:pre-wrap;min-height:50px}.hidden{display:none}
+input,button{width:100%;padding:10px;margin:8px 0;background:#050505;color:#8f8;border:1px solid #0f0}
+#count{font-size:22px;text-align:center}
+</style></head><body><canvas id=c></canvas>
+<div class=wrap id=panel><h1>DRS SECURE TERMINAL</h1><div id=t class=type></div>
+<input id=u placeholder="Username"><input id=p placeholder="Place of birth"><input id=r placeholder="Registration code">
+<button onclick="login()">AUTHENTICATE</button><div id=err></div></div>
+<script>
+let txt="Authorised personnel only...\nEnter credentials to unlock the final registration file.",i=0;
+(function type(){if(i<txt.length){t.textContent+=txt[i++];setTimeout(type,25)}})();
+let tries=3;
+function login(){
+if(u.value==="H@ck3r"&&p.value==="London"&&r.value==="R3G-2026"){decrypt();}
+else{tries--;err.textContent="ACCESS DENIED. Attempts remaining: "+tries;if(tries<=0){document.querySelector("button").disabled=true;err.textContent="TERMINAL LOCKED";}}
+}
+function decrypt(){
+panel.innerHTML="<h2>Decrypting...</h2><div id=count>0%</div>";
+let n=0;let x=setInterval(()=>{n+=4;count.textContent=n+"%";if(n>=100){clearInterval(x);document.body.innerHTML='<canvas id=\"c\"></canvas><div class=\"wrap\"><h1>✅ ACCESS GRANTED</h1><p>You have successfully completed the DRS challenge.</p><h2>FINAL PASSWORD</h2><div style=\"font-size:42px;text-align:center;color:#fff\">CERTIFICATE</div></div>';}},80);
+}
+let cv=document.getElementById("c"),ctx=cv.getContext("2d");function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();onresize=rs;
+let cols,arr;function init(){cols=Math.floor(cv.width/20);arr=Array(cols).fill(1)}init();onresize=()=>{rs();init()}
+function draw(){ctx.fillStyle="rgba(0,0,0,.08)";ctx.fillRect(0,0,cv.width,cv.height);ctx.fillStyle="#0f0";ctx.font="16px monospace";arr.forEach((y,i)=>{let ch=String.fromCharCode(33+Math.random()*94);ctx.fillText(ch,i*20,y*20);arr[i]=y*20>cv.height&&Math.random()>.975?0:y+1});requestAnimationFrame(draw)}draw();
+</script></body></html>
