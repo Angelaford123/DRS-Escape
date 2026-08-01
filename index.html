@@ -14,12 +14,13 @@ let txt="Authorised personnel only...\nEnter credentials to unlock the final reg
 (function type(){if(i<txt.length){t.textContent+=txt[i++];setTimeout(type,25)}})();
 let tries=3;
 function login(){
-if(u.value==="H@ck3r"&&p.value==="London"&&r.value==="R3G-2026"){decrypt();}
+if(u.value==="H@ck3r"&&p.value==="York"&&r.value==="R3G2026"){decrypt();}
 else{tries--;err.textContent="ACCESS DENIED. Attempts remaining: "+tries;if(tries<=0){document.querySelector("button").disabled=true;err.textContent="TERMINAL LOCKED";}}
 }
 function decrypt(){
 panel.innerHTML="<h2>Decrypting...</h2><div id=count>0%</div>";
-let n=0;let x=setInterval(()=>{n+=4;count.textContent=n+"%";if(n>=100){clearInterval(x);document.body.innerHTML='<canvas id=\"c\"></canvas><div class=\"wrap\"><h1>✅ ACCESS GRANTED</h1><p>You have successfully completed the DRS challenge.</p><h2>FINAL PASSWORD</h2><div style=\"font-size:42px;text-align:center;color:#fff\">CERTIFICATE</div></div>';}},80);
+let n=0;let x=setInterval(()=>{n+=4;count.textContent=n+"%";if(n>=100){clearInterval(x);document.body.innerHTML='<canvas id="c"></canvas><div class="wrap" style="text-align:center;"><h1 style="color:#00ff66;">██ SYSTEM RESTORED ██</h1><div style="font-size:22px;line-height:1.8;margin-top:30px;"><p><strong>Congratulations!</strong></p><p>You have successfully disabled the virus.</p><p>The DRS network is now secure.</p><p style="font-size:28px;color:#ffffff;margin-top:30px;"><strong>MISSION COMPLETE</strong></p></div></div>'
+  ;}},80);
 }
 let cv=document.getElementById("c"),ctx=cv.getContext("2d");function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();onresize=rs;
 let cols,arr;function init(){cols=Math.floor(cv.width/20);arr=Array(cols).fill(1)}init();onresize=()=>{rs();init()}
