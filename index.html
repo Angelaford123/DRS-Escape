@@ -10,11 +10,11 @@ input,button{width:100%;padding:10px;margin:8px 0;background:#050505;color:#8f8;
 <input id=u placeholder="Username"><input id=p placeholder="Place of birth"><input id=r placeholder="Registration code">
 <button onclick="login()">AUTHENTICATE</button><div id=err></div></div>
 <script>
-let txt="Authorised personnel only...\nEnter credentials to unlock the final registration file.",i=0;
+let txt="Authorised personnel only...\nEnter credentials to restore the system.",i=0;
 (function type(){if(i<txt.length){t.textContent+=txt[i++];setTimeout(type,25)}})();
 let tries=3;
 function login(){
-if(u.value==="H@ck3r"&&p.value==="York"&&r.value==="R3G2026"){decrypt();}
+if(u.value==="H@ck3r"&&p.value==="York"&&r.value==="REG2026"){decrypt();}
 else{tries--;err.textContent="ACCESS DENIED. Attempts remaining: "+tries;if(tries<=0){document.querySelector("button").disabled=true;err.textContent="TERMINAL LOCKED";}}
 }
 function decrypt(){
